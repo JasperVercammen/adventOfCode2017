@@ -3,12 +3,12 @@ const input =
 
 const main = () => {
   const splitInput = input.split('');
-  let prevNumber = splitInput[splitInput.length - 1];
-  const solution = splitInput.reduce((sum, num) => {
-    if (prevNumber === num) {
+  const compareInput = input.repeat(2);
+  const compareIndex = splitInput.length / 2;
+  const solution = splitInput.reduce((sum, num, i) => {
+    if (compareInput[i + compareIndex] === num) {
       sum += parseInt(num);
     }
-    prevNumber = num;
     return sum;
   }, 0);
   return solution;
