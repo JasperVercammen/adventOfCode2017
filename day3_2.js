@@ -60,7 +60,6 @@ const main = () => {
     y = newY;
   }
 
-  console.log(spiral);
   const solution = latestSum;
   return solution;
 };
