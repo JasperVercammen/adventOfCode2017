@@ -35,3 +35,27 @@ const main = () => {
 };
 
 console.log(main());
+
+const mapGenreFilteringOverBrowseContent = (filteredData, browseContent) => {
+  return browseContent.map((contentType, j) => {
+    let newMovie = contentType.movie;
+    if (filteredData[j]) {
+      if (contentType.movie && contentType.movie.length) {
+        newMovie = contentType.movie.map((movie, i) => {
+          return filteredData[i];
+        });
+      }
+
+      // if (contentType.serie && contentType.serie.length) {
+      //   contentType.serie.map((serie, i) => {
+      //     return filteredData[i];
+      //   });
+      // }
+    }
+
+    return {
+      ...contentType,
+      movie : newMovie,
+    };
+  });
+};
